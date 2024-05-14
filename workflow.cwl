@@ -2,11 +2,10 @@
 
 cwlVersion: v1.0
 class: Workflow
-label: UCSF Microbiome Challenge Evaluation
+label: WSU Placenta Clock Challenge Evaluation
 doc: |
-  This workflow will run and evaluate a Docker submission to the MOD - Preterm
-  Birth Prediction Microbiome Challenge (syn26133771). Metrics returned are:
-  AUC-ROC, AUPR, Accuracy, Sensitivity, Specificity.
+  This workflow will run and evaluate a Docker submission to the Placenta Clock Challenge. Metrics returned are:
+  RMSE.
 
 requirements:
 - class: StepInputExpressionRequirement
