@@ -1,5 +1,5 @@
-# Preterm Birth Prediction - Microbiome DREAM Challenge
+# Placenta clock DREAM Challenge
 
 [Challenge site]
 
-[challenge site]: https://www.synapse.org/preterm_birth_microbiome
+[challenge site]: 
