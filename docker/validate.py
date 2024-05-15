@@ -47,23 +47,23 @@ def check_dups(pred):
 
 def check_missing_ids(gold, pred):
     """Check for missing Samples."""
-    pred = pred.set_index('participant')
+    pred = pred.set_index('Sample')
     missing_ids = gold.index.difference(pred.index)
     if missing_ids.any():
         return (
-            f"Found {missing_ids.shape[0]} missing participant ID(s): "
+            f"Found {missing_ids.shape[0]} missing Sample ID(s): "
             f"{missing_ids.to_list()}"
         )
     return ""
 
 
 def check_unknown_ids(gold, pred):
-    """Check for unknown participant IDs."""
-    pred = pred.set_index('participant')
+    """Check for unknown Sample IDs."""
+    pred = pred.set_index('Sample')
     unknown_ids = pred.index.difference(gold.index)
     if unknown_ids.any():
         return (
-            f"Found {unknown_ids.shape[0]} unknown participant ID(s): "
+            f"Found {unknown_ids.shape[0]} unknown Sample ID(s): "
             f"{unknown_ids.to_list()}"
         )
     return ""
@@ -71,26 +71,18 @@ def check_unknown_ids(gold, pred):
 
 def check_nan_values(pred):
     """Check for NAN predictions."""
-    missing_probs = pred.probability.isna().sum()
+    missing_probs = pred.GA_prediction.isna().sum()
     if missing_probs:
         return (
-            f"'probability' column contains {missing_probs} NaN value(s)."
+            f"'GA_prediction' column contains {missing_probs} NaN value(s)."
         )
     return ""
 
 
-def check_binary_values(pred):
-    """Check that binary label are only 0 and 1."""
-    colname = pred.filter(regex='preterm').columns[0]
-    if not pred.loc[:, colname].isin([0, 1]).all():
-        return f"'{colname}' column should only contain 0 and 1."
-    return ""
-
-
 def check_prob_values(pred):
-    """Check that probabilities are between [0, 1]."""
-    if (pred.probability < 0).any() or (pred.probability > 1).any():
-        return "'probability' column should be between [0, 1] inclusive."
+    """Check that GA are between [10, 43]."""
+    if (pred.GA_prediction < 10).any() or (pred.GA_prediction > 43).any():
+        return "'GA_prediction' column should be between [10, 43] inclusive."
     return ""
 
 
@@ -99,7 +91,7 @@ def validate(gold_file, pred_file, task_number):
     errors = []
 
     gold = pd.read_csv(gold_file,
-                       index_col="participant")
+                       index_col="Sample")
     try:
         pred = pd.read_csv(pred_file,
                            usecols=COLS[task_number],
