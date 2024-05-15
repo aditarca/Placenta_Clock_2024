@@ -12,14 +12,12 @@ import numpy as np
 
 COLS = {
     "1": {
-        'participant': str,
-        'was_preterm': np.int8,
-        'probability': np.float64
+        'Sample': str,
+        'GA_prediction': np.float64
     },
     "2": {
-        'participant': str,
-        'was_early_preterm': np.int8,
-        'probability': np.float64
+        'Sample': str,
+        'GA_prediction': np.float64
     }
 }
 
@@ -37,18 +35,18 @@ def get_args():
 
 
 def check_dups(pred):
-    """Check for duplicate participant IDs."""
-    duplicates = pred.duplicated(subset=['participant'])
+    """Check for duplicate samples."""
+    duplicates = pred.duplicated(subset=['Sample'])
     if duplicates.any():
         return (
-            f"Found {duplicates.sum()} duplicate participant ID(s): "
-            f"{pred[duplicates].participant.to_list()}"
+            f"Found {duplicates.sum()} duplicate Sample(s): "
+            f"{pred[duplicates].Sample.to_list()}"
         )
     return ""
 
 
 def check_missing_ids(gold, pred):
-    """Check for missing participant IDs."""
+    """Check for missing Samples."""
     pred = pred.set_index('participant')
     missing_ids = gold.index.difference(pred.index)
     if missing_ids.any():
