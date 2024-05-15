@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """Validate prediction file.
 
-Prediction files between Task 1 and 2 are pretty much exactly
-the same, with the exception of one column name, where:
-    - Task 1: was_preterm
-    - Task 2: was_early_preterm
+Prediction files between Task 1 and 2 are the same, only the features allowed as predictors in teh model differ
 """
 
 import argparse
