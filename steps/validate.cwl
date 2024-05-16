@@ -46,4 +46,4 @@ arguments:
 
 hints:
   DockerRequirement:
-    dockerPull: docker.synapse.org/syn59425202/evaluation:v1
+    dockerPull: docker.synapse.org/syn59425204/evaluation:v1
