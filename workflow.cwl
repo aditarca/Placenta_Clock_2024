@@ -37,7 +37,7 @@ steps:
       - id: entityid
         source: "#submitterUploadSynId"
       - id: principalid
-        valueFrom: "3503169"
+        valueFrom: "3379097"
       - id: permissions
         valueFrom: "download"
       - id: synapse_config
@@ -50,7 +50,7 @@ steps:
       - id: entityid
         source: "#adminUploadSynId"
       - id: principalid
-        valueFrom: "3503169"
+        valueFrom: "3379097"
       - id: permissions
         valueFrom: "download"
       - id: synapse_config
