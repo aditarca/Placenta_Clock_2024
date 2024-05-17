@@ -46,4 +46,4 @@ arguments:
 
 hints:
   DockerRequirement:
-    dockerPull: docker.synapse.org/syn59425202/
+    dockerPull: docker.synapse.org/syn59522551/evalv1
