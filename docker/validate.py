@@ -80,9 +80,9 @@ def check_nan_values(pred):
 
 
 def check_prob_values(pred):
-    """Check that GA are between [10, 43]."""
-    if (pred.GA_prediction < 10).any() or (pred.GA_prediction > 43).any():
-        return "'GA_prediction' column should be between [10, 43] inclusive."
+    """Check that GA are between [5, 44]."""
+    if (pred.GA_prediction < 5).any() or (pred.GA_prediction > 44).any():
+        return "'GA_prediction' column should be between [5, 44] inclusive."
     return ""
 
 
