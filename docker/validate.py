@@ -12,12 +12,12 @@ import numpy as np
 
 COLS = {
     "1": {
-        'Sample': str,
-        'GA_prediction': np.float64
+        'ID': str,
+        'GA': np.float64
     },
     "2": {
-        'Sample': str,
-        'GA_prediction': np.float64
+        'ID': str,
+        'GA': np.float64
     }
 }
 
@@ -36,18 +36,18 @@ def get_args():
 
 def check_dups(pred):
     """Check for duplicate samples."""
-    duplicates = pred.duplicated(subset=['Sample'])
+    duplicates = pred.duplicated(subset=['ID'])
     if duplicates.any():
         return (
             f"Found {duplicates.sum()} duplicate Sample(s): "
-            f"{pred[duplicates].Sample.to_list()}"
+            f"{pred[duplicates].ID.to_list()}"
         )
     return ""
 
 
 def check_missing_ids(gold, pred):
     """Check for missing Samples."""
-    pred = pred.set_index('Sample')
+    pred = pred.set_index('ID')
     missing_ids = gold.index.difference(pred.index)
     if missing_ids.any():
         return (
@@ -59,7 +59,7 @@ def check_missing_ids(gold, pred):
 
 def check_unknown_ids(gold, pred):
     """Check for unknown Sample IDs."""
-    pred = pred.set_index('Sample')
+    pred = pred.set_index('ID')
     unknown_ids = pred.index.difference(gold.index)
     if unknown_ids.any():
         return (
