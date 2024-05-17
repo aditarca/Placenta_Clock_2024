@@ -19,8 +19,8 @@ expression: |
 
   ${
     if(inputs.task_number == "1") {
-      return {synid: "syn59512694"};
+      return {synid: "syn59520752"};
     } else {
-      return {synid: "syn59512694"};
+      return {synid: "syn59520752"};
     }
   }
