@@ -17,7 +17,7 @@ COLS = {
     },
     "2": {
         'ID': str,
-        'GA': np.float64
+        'GA_prediction': np.float64
     }
 }
 
@@ -91,7 +91,7 @@ def validate(gold_file, pred_file, task_number):
     errors = []
 
     gold = pd.read_csv(gold_file,
-                       index_col=ID")
+                       index_col="ID")
     try:
         pred = pd.read_csv(pred_file,
                            usecols=COLS[task_number],
