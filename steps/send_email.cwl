@@ -44,7 +44,7 @@ requirements:
           for annot in args.private_annotations:
             del annots[annot]
           message = ["Hello %s,\n\n" % name,
-                    "Your submission (ID: %s) has been scored!  Below are the point estimates based on 100 bootstrap iterations on a small subset of the test set:\n\n" % sub.id,
+                    "Your submission (ID: %s) has been scored!  Below are the point estimates based on 100 test samples in the leaderboard validation set:\n\n" % sub.id,
                     "\n".join(["\t" + i + ": " + str(annots[i]) for i in annots]),
                     "\n\nYour scores based on the entire test set will be announced after the final submission deadline."
                     "\n\nSincerely,\nChallenge Administrator"]
