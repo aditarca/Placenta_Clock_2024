@@ -33,7 +33,7 @@ outputs:
   outputBinding:
     glob: true_results.json
 
-baseCommand: score.R
+baseCommand: CMD R -e "source('script.R')"
 arguments:
 - prefix: -p
   valueFrom: $(inputs.input_file.path)
