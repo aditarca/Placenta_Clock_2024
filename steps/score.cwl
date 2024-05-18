@@ -33,7 +33,7 @@ outputs:
   outputBinding:
     glob: true_results.json
 
-baseCommand: Rscript score.R
+baseCommand: score.R
 arguments:
 - prefix: -p
   valueFrom: $(inputs.input_file.path)
