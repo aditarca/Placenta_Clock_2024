@@ -33,7 +33,7 @@ outputs:
   outputBinding:
     glob: true_results.json
 
-baseCommand: CMD R -e "source('script.R')"
+baseCommand: /usr/bin/Rscript script.R
 arguments:
 - prefix: -p
   valueFrom: $(inputs.input_file.path)
